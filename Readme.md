@@ -1,7 +1,9 @@
 #Setup
 
 To run this you will need POSTMan installed.
-You will need to load this JSON file into POSTMAN. 
+https://www.postman.com/downloads/
+
+You will need to load this JSON file in the repository into POSTMAN. 
 
 You will need to create an Environment File with 2 values.
 
@@ -25,3 +27,9 @@ Highlight the Folder called Fuzzy Merging Test Bed and select the Environment yo
 Then Click "Start Run".
 
 If all go Green it means that all your tests passed, if some have turned Red it means that you changes have caused some expectations to fail. 
+
+#How to write more tests
+
+https://learning.postman.com/docs/writing-scripts/script-references/test-examples/#asserting-object-properties
+
+Under the Tests tab in Postman, you will be able to write your assertions. This example contains some popular assertions that you will want to do that should cover most cases. 
