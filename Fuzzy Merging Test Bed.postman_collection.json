@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "8d79a391-1f44-4b2d-81e3-6671cf328ce4",
+		"name": "Fuzzy Merging Test Bed",
+		"description": "This is a framework for monitoring regressions and acceptance tests on fuzzy merged records in the CluedIn platform. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Get a Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"access_token\", data.access_token);",
+									"postman.setEnvironmentVariable(\"refresh_token\", data.refresh_token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin@foobar.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Foobar23!",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "foobar",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{authUrl}}/connect/token",
+							"host": [
+								"{{authUrl}}"
+							],
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Org1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expect Number of Codes\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.entity.processedData.codes.length).to.eql(3);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/entity?id=15da0b1d-6415-5c97-9450-98ce9b4a8f8a&full=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"entity"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "15da0b1d-6415-5c97-9450-98ce9b4a8f8a"
+								},
+								{
+									"key": "full",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expect Number of Codes\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.entity.processedData.codes.length).to.eql(3);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/entity?id=15da0b1d-6415-5c97-9450-98ce9b4a8f8a&full=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"entity"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "15da0b1d-6415-5c97-9450-98ce9b4a8f8a"
+								},
+								{
+									"key": "full",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Person",
+			"item": []
+		}
+	]
+}
