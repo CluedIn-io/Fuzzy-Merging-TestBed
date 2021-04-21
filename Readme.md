@@ -1,4 +1,4 @@
-#Setup
+# Setup
 
 To run this you will need POSTMan installed.
 https://www.postman.com/downloads/
@@ -18,7 +18,7 @@ e.g.
 url = https://app.nightly.cluedin-test.online/api
 authUrl = https://app.nightly.cluedin-test.online/auth
 
-#Run the Tests
+# Run the Tests
 
 In Postman, click the "Runner" which will open the Test Runner. 
 
@@ -28,7 +28,7 @@ Then Click "Start Run".
 
 If all go Green it means that all your tests passed, if some have turned Red it means that you changes have caused some expectations to fail. 
 
-#How to write more tests
+# How to write more tests
 
 https://learning.postman.com/docs/writing-scripts/script-references/test-examples/#asserting-object-properties
 
