@@ -18,6 +18,8 @@ e.g.
 url = https://app.nightly.cluedin-test.online/api
 authUrl = https://app.nightly.cluedin-test.online/auth
 
+Update the Get Token call to include the Username, Password and Account for the account of CluedIn you are wanting to authenticate against and save.
+
 # Run the Tests
 
 In Postman, click the "Runner" which will open the Test Runner. 
